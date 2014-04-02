@@ -1,0 +1,133 @@
+/*
+ * Override Bootstrap's default container.
+ */
+
+/*
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}*/
+
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+  background-color: #FDBE0F;
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.blog-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #000;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.blog-nav {
+  color: #000;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+  color: #000;
+  background: #f1a500;
+}
+
+.blog-nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right:  5px solid transparent;
+  border-bottom: 5px solid;
+  border-left:   5px solid transparent;
+}
+
+/*
+ * Main column and sidebar layout
+ */
+
+.blog-main {
+  line-height: 1.5;
+  padding: 0;
+}
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 15px;
+  margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+  padding: 15px;
+  border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+
+
+/* Pagination */
+.pager {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+/*
+ * Blog posts
+ */
+
+.blog-post {
+  margin-bottom: 60px;
+}
+.blog-post-title {
+  margin-bottom: 5px;
+}
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #383838),
+    color-stop(1, #000000)
+  );
+  background-image: -o-linear-gradient(bottom, #383838 0%, #000000 100%);
+  background-image: -moz-linear-gradient(bottom, #383838 0%, #000000 100%);
+  background-image: -webkit-linear-gradient(bottom, #383838 0%, #000000 100%);
+  background-image: -ms-linear-gradient(bottom, #383838 0%, #000000 100%);
+  background-image: linear-gradient(to bottom, #383838 0%, #000000 100%);
+  height:100%;
+}
+
+.blog-footer a:hover {
+  color: #f1a500;
+}
