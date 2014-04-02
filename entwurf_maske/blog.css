@@ -1,16 +1,4 @@
 /*
- * Override Bootstrap's default container.
- */
-
-/*
-@media (min-width: 1200px) {
-  .container {
-    width: 970px;
-  }
-}*/
-
-
-/*
  * Masthead for nav
  */
 
@@ -27,6 +15,7 @@
   font-weight: 500;
   color: #000;
 }
+
 .blog-nav-item:hover,
 .blog-nav-item:focus {
   color: #000;

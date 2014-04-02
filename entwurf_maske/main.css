@@ -1,63 +1,61 @@
 body {
-	font-family: sans-serif;
-	color: #ffffff;
-	margin: 0; 
-	padding: 0;
-
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0, #000000),
-		color-stop(1, #383838)
-	);
-	background-image: -o-linear-gradient(bottom, #000000 0%, #383838 100%);
-	background-image: -moz-linear-gradient(bottom, #000000 0%, #383838 100%);
-	background-image: -webkit-linear-gradient(bottom, #000000 0%, #383838 100%);
-	background-image: -ms-linear-gradient(bottom, #000000 0%, #383838 100%);
-	background-image: linear-gradient(to bottom, #000000 0%, #383838 100%);
-	background-attachment:fixed;
-	height:100%;
+  font-family: sans-serif;
+  color: #ffffff;
+  margin: 0; 
+  padding: 0;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #000000),
+    color-stop(1, #383838)
+    );
+  background-image: -o-linear-gradient(bottom, #000000 0%, #383838 100%);
+  background-image: -moz-linear-gradient(bottom, #000000 0%, #383838 100%);
+  background-image: -webkit-linear-gradient(bottom, #000000 0%, #383838 100%);
+  background-image: -ms-linear-gradient(bottom, #000000 0%, #383838 100%);
+  background-image: linear-gradient(to bottom, #000000 0%, #383838 100%);
+  background-attachment:fixed;
+  height:100%;
 }
 
 a {
-	color: #FDBE0F;
+  color: #FDBE0F;
 }
 
 .row a:hover {
-	color: #f1a500;
+  color: #f1a500;
 }
 
 div#maincontent {
-	padding-top: 20px;
+  padding-top: 20px;
 }
 
 div#header {
-	min-width: 100%;
-	text-align: center;
-	padding: 20px 0;
+  min-width: 100%;
+  text-align: center;
+  padding: 20px 0;
 }
 
 div#header img {
-	display: inline;
-	margin: 0;
-	padding: 0 20px;
+  display: inline;
+  margin: 0;
+  padding: 0 20px;
 }
 
 div#header h1 {
-	font-size: 3em;
-	display: inline;
-	vertical-align: -10px;
+  font-size: 3em;
+  display: inline;
+  vertical-align: -10px;
 }
 
 div#navigation {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 div#maincontent .pager li a {
-	color: #000;
+  color: #000;
 }
-
 
 
 /*
@@ -86,47 +84,51 @@ h3.membergroup-descr {
 
 
 
-/*#####################
-Additional Styles for Slider (required)
-#####################*/
+/*
+ * Slider ideas
+*/
 #myCarousel {
-	margin-top: -20px;
+  margin-top: -20px;
 }
 
 .item img {
-width:100%;
+  width:100%;
 }
 .carousel-control.left, .carousel-control.right {
-background-image:none !important;
-opacity:1;
+  background-image:none !important;
+  opacity:1;
 }
  
 .carousel-control.left {
-top:40%
+  top:40%
 }
+
 .carousel-control.right {
-top:40%
+  top:40%
 }
+
 .carousel-caption {
-top:15%;
-text-align:left;
-height:auto;
- 
+  top:15%;
+  text-align:left;
+  height:auto;
 }
+
 .carousel-caption h2 {
-line-height:160%
+  line-height:160%
 }
+
 .carousel-caption h2 span {
-background:#428BCA;
-padding:10px 20px;
-color:#fff;
-border-left:3px solid #fff;
+  background:#428BCA;
+  padding:10px 20px;
+  color:#fff;
+  border-left:3px solid #fff;
 }
+
 p.caption {
-background:#fff;
-padding:6px;
-text-shadow:none;
-color:#428BCA;
+  background:#fff;
+  padding:6px;
+  text-shadow:none;
+  color:#428BCA;
 }
 
 /* GALLERY */
@@ -184,5 +186,5 @@ fieldset[disabled] .btn-opel.active {
 /* btn-opel END */
 
 div.contactform {
-	margin-top: 50px;
+  margin-top: 50px;
 }
