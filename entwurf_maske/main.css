@@ -195,3 +195,7 @@ fieldset[disabled] .btn-opel.active {
 div.contactform {
   margin-top: 50px;
 }
+
+div.carlist {
+  margin-bottom: 50px;
+}
