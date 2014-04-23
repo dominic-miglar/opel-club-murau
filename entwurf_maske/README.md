@@ -6,4 +6,12 @@ Ein Auto-Model hat u.a. auch diese Attribute:
 * Project project: OneToOne Relation Auto<->Project, Project beinhaltet mehrere ProjectEntries (Projekttagebuch)
 * ProjectEntry kann Text umfassen. Es sollten Fotos zu ProjectEntries verbunden werden koennen.
 
+-----------
+
+In Fotos sollten Personen sowie Autos markiert werden koennen. 
+(Photos of.... Hans Wurst; Photos of Astra G CC...)
+
+TODO: Fotoalben wie handhaben? Wie Fotoalben von Autos / Events am besten und effizientesten voneinander trennen?
+
+
 
