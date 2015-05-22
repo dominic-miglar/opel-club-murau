@@ -19,7 +19,9 @@ class AboutController extends \BaseController {
 		$members = Member::where('onlySupporting', '=', False)->get();
 		$membersOnlySupporting = Member::where('onlySupporting', '=', True)->get();
 
-		return View::make('about.index')->with(['navActive' => $navActive, 'articles' => $articles, 'aboutArticle' => $aboutArticle, 'socialNetworks' => $socialNetworks, 'members' => $members, 'membersOnlySupporting' => $membersOnlySupporting, ]);
+        $aboutAlbum = Album::whereType(Album::$type['aboutAlbum'])->first();
+
+		return View::make('about.index')->with(['navActive' => $navActive, 'articles' => $articles, 'aboutArticle' => $aboutArticle, 'socialNetworks' => $socialNetworks, 'members' => $members, 'membersOnlySupporting' => $membersOnlySupporting, 'aboutAlbum' => $aboutAlbum, ]);
 
 	}
 

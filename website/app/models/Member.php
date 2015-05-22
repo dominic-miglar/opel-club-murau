@@ -39,6 +39,19 @@ class Member extends Eloquent {
         return $this->belongsTo('Photo');
     }
 
+    public function cars() {
+        return $this->hasMany('Car');
+    }
+
+    public static function getSelectSet() {
+        $members = Member::all();
+        $selectSet = [];
+        foreach($members as $member) {
+            $selectSet[$member->id] = $member->firstName.' '.$member->lastName;
+        }
+        return $selectSet;
+    }
+
     public static function validate($input, $update=false) {
         $rules = array(
             'firstName' => 'Required|Max:255',

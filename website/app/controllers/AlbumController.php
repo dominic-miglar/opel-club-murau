@@ -10,8 +10,9 @@ class AlbumController extends \BaseController {
 	public function index()
 	{
 		$navActive = 'gallery';
-		$albums = Album::where('isProjectAlbum', '=', False)->orderBy('created_at', 'desc')->paginate(4);
-		return View::make('albums.index')->with(['navActive' => $navActive, 'albums' => $albums]);
+		//$albums = Album::where('isProjectAlbum', '=', False)->orderBy('created_at', 'desc')->paginate(4);
+		$albums = Album::whereType(Album::$type['galleryAlbum'])->orderBy('created_at', 'desc')->paginate(4);
+        return View::make('albums.index')->with(['navActive' => $navActive, 'albums' => $albums]);
 	}
 
 
@@ -43,9 +44,11 @@ class AlbumController extends \BaseController {
 		$album->name = $input['name'];
 		$album->description = $input['description'];
 
-		if(isset($input['isProjectAlbum']))
-			if($input['isProjectAlbum'] == "1")
-				$album->isProjectAlbum = true;
+		//if(isset($input['isProjectAlbum']))
+		//	if($input['isProjectAlbum'] == "1")
+		//		$album->isProjectAlbum = true;
+
+        $album->type = Album::$type['galleryAlbum'];
 
 		$album->save();
 
@@ -98,9 +101,11 @@ class AlbumController extends \BaseController {
 
 		$album->name = $input['name'];
 		$album->description = $input['description'];
+		/*
 		if(isset($input['isProjectAlbum']))
 			if($input['isProjectAlbum'] == "1")
 				$album->isProjectAlbum = true;
+		*/
 
         /* BEGIN Photo upload */
 

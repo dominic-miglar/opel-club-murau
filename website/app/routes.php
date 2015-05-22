@@ -24,6 +24,7 @@ Route::resource('contact', 'ContactController');
 Route::resource('albums', 'AlbumController');
 Route::resource('description', 'DescriptionArticleController');
 Route::resource('albums.photos', 'AlbumPhotosController');
+Route::resource('cars', 'CarController');
 Route::get('/test/', 'TestController@testupload');
 Route::post('/test/', 'TestController@testupload');
 Route::get('/auth/login/', 'AuthenticationController@showLoginPage');

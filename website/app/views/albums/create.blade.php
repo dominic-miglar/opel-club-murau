@@ -16,7 +16,7 @@
                 <div class="blog-post">
                     <h2 class="blog-post-title">Neues Fotoalbum erstellen</h2>
                     <div class="blog-post-body">
-                        @if($errors->has() || $errors->has())
+                        @if($errors->has())
                             <p style="color: #FDBE0F">Es sind Fehler in deinen Eingaben, bitte kontrolliere diese noch einmal!</p>
                         @endif
                         <form action="/albums/" method="post" class="form-horizontal">
@@ -42,7 +42,8 @@
                                     {{ $errors->first('description') }}
                                 </div>
                             </div>
-                            @if($errors->member->has('onlySupporting'))
+                                {{--
+                            @if($errors->member->has('isProjectAlbum'))
                             <div class="form-group has-error">
                             @else
                             <div class="form-group">
@@ -56,7 +57,7 @@
                                         {{ $errors->member->first('isProjectAlbum') }}
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <button type="submit" class="btn btn-opel">Fotoalbum erstellen</button>
                         </form>
                     </div>

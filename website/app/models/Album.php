@@ -13,6 +13,13 @@ class Album extends Eloquent {
     protected $table = 'albums';
     protected $guarded = ['id', 'created_at', 'updated_at',];
 
+    public static $type = [
+        'galleryAlbum' => 1,
+        'carAlbum' => 2,
+        'projectAlbum' => 3,
+        'aboutAlbum' => 4,
+    ];
+
     public function photos()
     {
         return $this->hasMany('Photo');
@@ -26,7 +33,7 @@ class Album extends Eloquent {
         $rules = array(
             'name' => 'Required|Max:255',
             'description' => 'Required|Max:255',
-            'isProjectAlbum' => 'boolean',
+            //'isProjectAlbum' => 'boolean',
         );
         return Validator::make($input, $rules);
     }

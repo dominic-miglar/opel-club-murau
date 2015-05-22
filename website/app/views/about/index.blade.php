@@ -6,21 +6,16 @@
             <!-- Carousel BEGIN -->
             <div id="myCarousel" class="carousel slide">
                 <div class="carousel-inner">
+                    @if($aboutAlbum->photos()->first() != null)
                     <div class="item active">
-                        <img src="http://placehold.it/1500x400/cccccc/ffffff" alt="Slide1">
-                        <div class="container">
-                        </div>
+                        <img src="{{ $aboutAlbum->photos()->first()->getPath() }}" alt="Slide1">
                     </div>
+                    @endif
+                    @foreach($aboutAlbum->photos as $photo)
                     <div class="item">
-                        <img src="http://placehold.it/1500x400/999999/cccccc" alt="Slide2">
-                        <div class="container">
-                        </div>
+                        <img src="{{ $photo->getPath() }}" alt="Slide2">
                     </div>
-                    <div class="item">
-                        <img src="http://placehold.it/1500x400/dddddd/333333" alt="Slide3">
-                        <div class="container">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -54,7 +49,8 @@
                 @if(Auth::check())
                     @if(Auth::user()->isWebsiteAdmin())
                         <div class="sidebar-module sidebar-module-inset">
-                            <span class="glyphicon glyphicon-plus-sign"></span><a href="/about/create/"> Neuen Artikel erstellen</a>
+                            <span class="glyphicon glyphicon-plus-sign"></span><a href="/about/create/"> Neuen Artikel erstellen</a><br />
+                            <span class="glyphicon glyphicon-plus-sign"></span><a href="/albums/{{ $aboutAlbum->id }}/photos/create/"> Fotos zu Slider hinzuf&uuml;gen</a>
                         </div>
                     @endif
                 @endif

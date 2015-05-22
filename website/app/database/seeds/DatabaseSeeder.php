@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
 		$this->call('SponsorsTableSeeder');
 		$this->call('SocialNetworksTableSeeder');
 		$this->call('AlbumsTableSeeder');
+        $this->call('CarsTableSeeder');
+        $this->call('DefaultAlbumsTableSeeder');
 		//$this->call('PhotosTableSeeder');
 	}
 }
@@ -226,6 +228,18 @@ class SocialNetworksTableSeeder extends Seeder
 	}
 }
 
+class DefaultAlbumsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $album_about = new Album();
+        $album_about->name = 'About us';
+        $album_about->description = 'Photos for the slider on the about us page.';
+        $album_about->type = Album::$type['aboutAlbum'];
+        $album_about->save();
+    }
+}
+
 class AlbumsTableSeeder extends Seeder
 {
 	public function run()
@@ -233,25 +247,25 @@ class AlbumsTableSeeder extends Seeder
 		$album_1 = new Album();
 		$album_1->name = '11. int. Opeltreffen des OCM';
 		$album_1->description = 'Hier findest du Fotos vom 11. internationalen Opeltreffen des Opel-Club-Murau in St. Georgen.';
-		$album_1->isProjectAlbum = False;
+		$album_1->type = Album::$type['galleryAlbum'];
 		$album_1->save();
 
 		$album_2 = new Album();
 		$album_2->name = '10. int. Opeltreffen des OCM';
 		$album_2->description = 'Hier findest du Fotos vom 10. internationalen Opeltreffen des Opel-Club-Murau in St. Georgen.';
-		$album_2->isProjectAlbum = False;
+        $album_2->type = Album::$type['galleryAlbum'];
 		$album_2->save();
 
 		$album_3 = new Album();
 		$album_3->name = '9. int. Opeltreffen des OCM';
 		$album_3->description = 'Hier findest du Fotos vom 9. internationalen Opeltreffen des Opel-Club-Murau in St. Georgen.';
-		$album_3->isProjectAlbum = False;
+        $album_3->type = Album::$type['galleryAlbum'];
 		$album_3->save();
 
 		$album_4 = new Album();
 		$album_4->name = 'Kadett C Restauration';
 		$album_4->description = 'Hier findest du Fotos unserer Kadett C Restauration.';
-		$album_4->isProjectAlbum = True;
+        $album_4->type = Album::$type['projectAlbum'];
 		$album_4->save();
 	}
 }
@@ -297,4 +311,53 @@ class PhotosTableSeeder extends Seeder {
 		$photo_9->album()->associate($album_1);
 		$photo_9->save();
 	}
+}
+
+class CarsTableSeeder extends Seeder {
+    public function run() {
+        /*$table->string('manufacturer', 255);
+        $table->string('model', 255);
+        $table->integer('year_built')->nullable();
+        $table->integer('horsepower')->nullable();
+        $table->text('description')->nullable();*/
+
+        $album_1 = Album::create(['name' => 'dbseed', 'description' => 'dbseed']);
+
+        $member_1 = Member::whereId(1)->first();
+
+        $car_1 = new Car();
+        $car_1->manufacturer = 'Opel';
+        $car_1->model = 'Vectra C';
+        $car_1->horsepower = 122;
+        $car_1->yearBuilt = 2004;
+        $car_1->member()->associate($member_1);
+        $car_1->album()->associate($album_1);
+        $car_1->save();
+
+        $car_2 = new Car();
+        $car_2->manufacturer = 'Opel';
+        $car_2->model = 'Astra G';
+        $car_2->horsepower = 122;
+        $car_2->yearBuilt = 2004;
+        $car_2->member()->associate($member_1);
+        $car_2->album()->associate($album_1);
+        $car_2->save();
+
+        $car_3 = new Car();
+        $car_3->manufacturer = 'Opel';
+        $car_3->model = 'Corsa C';
+        $car_3->horsepower = 122;
+        $car_3->yearBuilt = 2004;
+        $car_3->member()->associate($member_1);
+        $car_3->album()->associate($album_1);
+        $car_3->save();
+
+        $car_4 = new Car();
+        $car_4->manufacturer = 'Opel';
+        $car_4->model = 'Rekord D';
+        $car_4->member()->associate($member_1);
+        $car_4->album()->associate($album_1);
+        $car_4->save();
+
+    }
 }

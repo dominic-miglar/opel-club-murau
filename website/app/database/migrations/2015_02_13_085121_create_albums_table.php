@@ -16,8 +16,9 @@ class CreateAlbumsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name', 255);
-			$table->boolean('isProjectAlbum')->default(False);
+			//$table->boolean('isProjectAlbum')->default(False);
 			$table->string('description', 255);
+            $table->integer('type')->nullable();
 			$table->timestamps();
 		});
 	}

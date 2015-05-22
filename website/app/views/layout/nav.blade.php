@@ -25,7 +25,7 @@
                 <a class="blog-nav-item" href="/members/">Mitglieder</a>
             @endif
 
-            {{--
+
             @if($navActive == 'cars')
                 <a class="blog-nav-item active" href="/cars/">Autos</a>
             @else
@@ -37,7 +37,7 @@
             @else
                 <a class="blog-nav-item" href="/projects/">Projekte</a>
             @endif
-            --}}
+
 
             @if($navActive == 'contact')
                 <a class="blog-nav-item active" href="/contact/">Kontakt</a>

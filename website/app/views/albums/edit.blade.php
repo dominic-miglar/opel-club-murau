@@ -48,7 +48,8 @@
                                     {{ $errors->first('description') }}
                                 </div>
                             </div>
-                            @if($errors->member->has('onlySupporting'))
+                            {{--
+                            @if($errors->member->has('isProjectAlbum'))
                             <div class="form-group has-error">
                             @else
                             <div class="form-group">
@@ -68,6 +69,7 @@
                                     </div>
                                 </div>
                             </div>
+                            --}}
                             <button type="submit" class="btn btn-opel">Fotoalbum bearbeiten</button>
                         {{ Form::close() }}
                     </div>

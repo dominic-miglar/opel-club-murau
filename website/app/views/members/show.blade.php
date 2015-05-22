@@ -23,38 +23,22 @@
                         </div>
                     </div><!-- /.row -->
                     <h3>Autos</h3>
-                    <div class="row carlist">
-                        <div class="col-lg-7 col-md-7">
-                            <a class="thumbnail" href="#">
-                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                            </a>
-                        </div>
-                        <div class="col-lg-5 col-md-5">
-                            <h3>Opel Astra G CC</h3>
-                            <p>
-                                Mein heiß geliebter Opel. Baujahr 2000, 75PS.
-                            </p>
-                            <a class="btn btn-opel" href="auto-detail-1.html">
-                                Mehr Informationen <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div><!-- /.row -->
-                    <div class="row carlist">
-                        <div class="col-lg-7 col-md-7">
-                            <a class="thumbnail" href="#">
-                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                            </a>
-                        </div>
-                        <div class="col-lg-5 col-md-5">
-                            <h3>Opel Manta B GSi</h3>
-                            <p>
-                                Wäre mein Traumauto .... :D nur zur Demonstration
-                            </p>
-                            <a class="btn btn-opel" href="#">
-                                Mehr Informationen <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div><!-- /.row -->
+                    @foreach($member->cars as $car)
+                        <div class="row carlist">
+                            <div class="col-lg-7 col-md-7">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-5 col-md-5">
+                                <h3>{{ $car->manufacturer }} {{ $car->model }}</h3>
+                                {{ $car->description }}
+                                <a class="btn btn-opel" href="/cars/{{ $car->id }}/">
+                                    Mehr Informationen <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div><!-- /.row -->
+                    @endforeach
                 </div><!-- /.blog-post -->
             </div><!-- /.blog-main -->
             <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -79,7 +63,9 @@
                 <div class="sidebar-module">
                     <h4>Autos</h4>
                     <ol class="list-unstyled">
-                        <li><a href="auto-detail-1.html">Astra G CC</a></li>
+                        @foreach($member->cars as $car)
+                            <li><a href="/cars/{{ $car->id }}/">{{ $car->model }}</a></li>
+                        @endforeach
                     </ol>
                 </div>
                 @if($member->telephoneNumber && $member->email)
