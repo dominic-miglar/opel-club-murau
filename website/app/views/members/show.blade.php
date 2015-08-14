@@ -32,10 +32,11 @@
                             </div>
                             <div class="col-lg-5 col-md-5">
                                 <h3>{{ $car->manufacturer }} {{ $car->model }}</h3>
-                                {{ $car->description }}
-                                <a class="btn btn-opel" href="/cars/{{ $car->id }}/">
-                                    Mehr Informationen <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
+                                <div class="btn-opel-hover">
+                                    <a class="btn btn-opel btn-opel-hover" href="/cars/{{ $car->id }}/">
+                                        Mehr Informationen <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
                             </div>
                         </div><!-- /.row -->
                     @endforeach

@@ -32,12 +32,13 @@
                 <a class="blog-nav-item" href="/cars/">Autos</a>
             @endif
 
+            {{--
             @if($navActive == 'projects')
                 <a class="blog-nav-item active" href="/projects/">Projekte</a>
             @else
                 <a class="blog-nav-item" href="/projects/">Projekte</a>
             @endif
-
+            --}}
 
             @if($navActive == 'contact')
                 <a class="blog-nav-item active" href="/contact/">Kontakt</a>
