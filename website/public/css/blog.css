@@ -138,7 +138,7 @@
 */
 .featured-article {
   width: 482px;
-  height: 350px;
+  /*height: 350px;*/
   position: relative;
   margin-bottom: 1em;
 }
