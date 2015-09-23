@@ -19,7 +19,13 @@
                         @if($errors->has())
                             <p style="color: #FDBE0F">Es sind Fehler in deinen Eingaben, bitte kontrolliere diese noch einmal!</p>
                         @endif
-                        {{ Form::open(array('url' => '/cars/'.$car->id.'/', 'method' => 'put', 'class' => 'form-horizontal')) }}
+                        {{ Form::open(array('url' => '/cars/'.$car->id.'/', 'method' => 'put', 'class' => 'form-horizontal', 'files' => true)) }}
+                            <div class="form-group">
+                                <label for="photoFile" class="col-sm-2 control-label">Titelfoto des Albums</label>
+                                <div class="col-sm-10">
+                                    {{ Form::file('photoFile') }}
+                                </div>
+                            </div>
                             @if($errors->has('manufacturer'))
                             <div class="form-group has-error">
                             @else
@@ -87,7 +93,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-opel">Fahrzeug bearbeiten</button>
-                        </form>
+                        {{ Form::close() }}
                     </div>
                 </div> <!-- /.blog-post -->
             </div> <!-- /.row -->
