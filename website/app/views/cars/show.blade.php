@@ -7,7 +7,11 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8">
                         <a href="/cars/{{ $car->id }}/">
-                            <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                            @if($car->album->titlePhoto != null)
+                                <img class="img-responsive" src="{{ $car->album->titlePhoto->getPath() }}" alt="titlePhoto">
+                            @else
+                                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                            @endif
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-4">

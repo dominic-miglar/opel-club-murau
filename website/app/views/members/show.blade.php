@@ -27,8 +27,13 @@
                         <div class="row carlist">
                             <div class="col-lg-7 col-md-7">
                                 <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    @if($car->album->titlePhoto != null)
+                                        <img class="img-responsive" src="{{ $car->album->titlePhoto->getPath() }}" alt="titlePhoto">
+                                    @else
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    @endif
                                 </a>
+                                <!-------------------->
                             </div>
                             <div class="col-lg-5 col-md-5">
                                 <h3>{{ $car->manufacturer }} {{ $car->model }}</h3>

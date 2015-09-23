@@ -14,7 +14,11 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="featured-article">
                         <a href="/cars/{{ $car->id }}/">
-                            <img src="http://placehold.it/482x350" alt="" class="thumb">
+                            @if($car->album->titlePhoto != null)
+                                <img class="thumb" src="{{ $car->album->titlePhoto->getPath() }}" alt="titlePhoto" width="482">
+                            @else
+                                <img src="http://placehold.it/482x350" alt="" class="thumb">
+                            @endif
                         </a>
                         <div class="block-title">
                             <h2>{{ $car->manufacturer }} {{ $car->model }}</h2>
