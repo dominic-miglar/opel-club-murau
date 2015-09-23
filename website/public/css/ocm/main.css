@@ -160,7 +160,7 @@ p.caption {
   background-color: #f1a500; 
   border-color: #FDBE0F; 
 } 
- 
+
 .btn-opel:active, 
 .btn-opel.active, 
 .open .dropdown-toggle.btn-opel { 
@@ -212,3 +212,31 @@ div.carlist {
   color: #000;
 }
 
+.pagination>li>span {
+    background-color: #FDBE0F !important;
+    color: #000 !important;
+    border: 1px solid #f1a500;
+}
+
+.pagination>.active>span {
+    background-color: #f1a500 !important;
+    color: #000 !important;
+    border: 1px solid #f1a500 !important;
+}
+
+.pagination>li>a {
+    background-color: #FDBE0F !important;
+    color: #000 !important;
+    border: 1px solid #f1a500;
+}
+
+.pagination>li>a:hover {
+    background-color: #FDBE0F !important;
+    color: #000 !important;
+    border: 1px solid #f1a500;
+}
+
+.pagination>.disabled>span {
+    border: 1px solid #999 !important;
+    background-color: #999 !important;
+}
