@@ -100,6 +100,7 @@ class CarController extends \BaseController {
 	public function update($id)
 	{
         $car = Car::find($id);
+        $album = $car->album;
 
         $input = Input::all();
         $validator = Car::validate($input);
@@ -118,6 +119,51 @@ class CarController extends \BaseController {
 
         $car->member()->associate($member);
         $car->save();
+
+        /* BEGIN Photo upload */
+
+        $photoFileProperty = 'photoFile';
+        $acceptedPhotoFileExtensions = [
+            'JPG', 'JPEG',
+        ];
+        $albumDestinationPath = public_path().'/uploads/'.$album->id.'/';
+        $photoDestinationPrefix = 'titlePhoto';
+
+        if(Input::hasFile($photoFileProperty)) {
+            //App:abort(500, 'lala');
+            if (!File::exists($albumDestinationPath)) {
+                File::makeDirectory($albumDestinationPath, 0755, true);
+            }
+
+            $file = Input::file($photoFileProperty);
+            $fileName = $photoDestinationPrefix . '_' . $file->getClientOriginalName();
+            $fileExtension = $file->getClientOriginalExtension();
+
+            if (!in_array(strtoupper($fileExtension), $acceptedPhotoFileExtensions)) {
+                App::abort(400, 'Invalid File Type');
+            }
+
+            $success = $file->move($albumDestinationPath, $fileName);
+            if ($success) {
+                $photo = new Photo();
+                $photo->name = $fileName;
+                $photo->path = $albumDestinationPath . $fileName;
+                $photo->save();
+
+                $thumb = Image::make($photo->path);
+                $thumb->fit(700, 300, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $thumb->save($albumDestinationPath . $photo->name);
+
+                // associate with album
+                $album->titlePhoto()->associate($photo);
+                $album->save();
+            } else {
+                App::abort(500, 'Internal Server Error');
+            }
+        }
+        /* END Photo Upload */
 
         return Redirect::to('/cars/'.$car->id.'/');
     }
